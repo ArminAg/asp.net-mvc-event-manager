@@ -1,7 +1,6 @@
 ﻿using asp.net_mvc_event_manager.Models;
 using asp.net_mvc_event_manager.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -31,10 +30,16 @@ namespace asp.net_mvc_event_manager.Controllers
         [HttpPost]
         public ActionResult Create(EventFormViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create", viewModel);
+            }
+
             var newEvent = new Event()
             {
                 ArtistId = User.Identity.GetUserId(),
-                DateTime = viewModel.DateTime,
+                DateTime = viewModel.GetDateTime(),
                 GenreId = viewModel.GenreId,
                 Venue = viewModel.Venue
             };
