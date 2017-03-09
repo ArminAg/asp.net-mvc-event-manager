@@ -28,6 +28,7 @@ namespace asp.net_mvc_event_manager.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(EventFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
