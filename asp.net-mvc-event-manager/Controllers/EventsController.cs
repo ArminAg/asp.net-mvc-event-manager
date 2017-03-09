@@ -1,5 +1,7 @@
 ﻿using asp.net_mvc_event_manager.Models;
 using asp.net_mvc_event_manager.ViewModels;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -14,6 +16,7 @@ namespace asp.net_mvc_event_manager.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             var viewModel = new EventFormViewModel()
@@ -22,6 +25,24 @@ namespace asp.net_mvc_event_manager.Controllers
             };
 
             return View(viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Create(EventFormViewModel viewModel)
+        {
+            var newEvent = new Event()
+            {
+                ArtistId = User.Identity.GetUserId(),
+                DateTime = DateTime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
+                GenreId = viewModel.GenreId,
+                Venue = viewModel.Venue
+            };
+
+            _context.Events.Add(newEvent);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
