@@ -34,7 +34,7 @@ namespace asp.net_mvc_event_manager.Controllers
             var newEvent = new Event()
             {
                 ArtistId = User.Identity.GetUserId(),
-                DateTime = DateTime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
+                DateTime = viewModel.DateTime,
                 GenreId = viewModel.GenreId,
                 Venue = viewModel.Venue
             };

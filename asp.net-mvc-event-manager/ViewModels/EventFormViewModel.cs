@@ -1,4 +1,5 @@
 ﻿using asp.net_mvc_event_manager.Models;
+using System;
 using System.Collections.Generic;
 
 namespace asp.net_mvc_event_manager.ViewModels
@@ -10,5 +11,9 @@ namespace asp.net_mvc_event_manager.ViewModels
         public string Time { get; set; }
         public byte GenreId { get; set; }
         public IEnumerable<Genre> Genres { get; set; }
+        public DateTime DateTime
+        {
+            get { return DateTime.Parse(string.Format("{0} {1}", Date, Time)); }
+        }
     }
 }
