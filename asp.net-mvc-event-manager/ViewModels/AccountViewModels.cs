@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace asp.net_mvc_event_manager.Models
+namespace asp.net_mvc_event_manager.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {
@@ -64,6 +64,10 @@ namespace asp.net_mvc_event_manager.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

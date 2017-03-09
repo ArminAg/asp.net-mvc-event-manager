@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace asp.net_mvc_event_manager.Models
+namespace asp.net_mvc_event_manager.ViewModels
 {
     public class IndexViewModel
     {
