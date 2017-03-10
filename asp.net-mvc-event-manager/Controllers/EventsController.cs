@@ -122,10 +122,11 @@ namespace asp.net_mvc_event_manager.Controllers
             }
 
             var userId = User.Identity.GetUserId();
-            var existingEvent = _context.Events.Single(e => e.Id == viewModel.Id && e.ArtistId == userId);
-            existingEvent.Venue = viewModel.Venue;
-            existingEvent.DateTime = viewModel.GetDateTime();
-            existingEvent.GenreId = viewModel.GenreId;
+            var existingEvent = _context.Events
+                .Include(e => e.Attendances.Select(a => a.Attendee))
+                .Single(e => e.Id == viewModel.Id && e.ArtistId == userId);
+
+            existingEvent.Modify(viewModel.GetDateTime(), viewModel.Venue, viewModel.GenreId);
             
             _context.SaveChanges();
 

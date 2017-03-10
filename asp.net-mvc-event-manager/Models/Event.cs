@@ -39,7 +39,19 @@ namespace asp.net_mvc_event_manager.Models
         {
             IsCanceled = true;
 
-            var notification = new Notification(NotificationType.EventCanceled, this);
+            var notification = Notification.EventCanceled(this);
+
+            foreach (var attendee in Attendances.Select(a => a.Attendee))
+                attendee.Notify(notification);
+        }
+
+        public void Modify(DateTime dateTime, string venue, byte genreId)
+        {
+            var notification = Notification.EventUpdated(this, DateTime, Venue);
+
+            Venue = venue;
+            DateTime = dateTime;
+            GenreId = genreId;
 
             foreach (var attendee in Attendances.Select(a => a.Attendee))
                 attendee.Notify(notification);
