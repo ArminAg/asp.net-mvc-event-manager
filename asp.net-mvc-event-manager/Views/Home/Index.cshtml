@@ -1,10 +1,10 @@
-﻿@model IEnumerable<asp.net_mvc_event_manager.Models.Event>
+﻿@model asp.net_mvc_event_manager.ViewModels.HomeViewModel
 @{
     ViewBag.Title = "Home Page";
 }
 
 <ul class="events">
-    @foreach (var currentEvent in Model)
+    @foreach (var currentEvent in Model.UpcomingEvents)
     {
         <li>
             <div class="date">
@@ -17,12 +17,19 @@
             </div>
             <div class="details">
                 <span class="artist">
-                    @currentEvent.Artist.Name <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@currentEvent.ArtistId">Follow</button>
+                    @currentEvent.Artist.Name
+                    @if (Model.ShowActions)
+                    {
+                        <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@currentEvent.ArtistId">Follow</button>
+                    }
                 </span>
                 <span class="genre">
                     @currentEvent.Genre.Name
                 </span>
-                <button class="btn btn-default btn-sm pull-right js-toggle-attendance" data-event-id="@currentEvent.Id">Going?</button>
+                @if (Model.ShowActions)
+                {
+                    <button class="btn btn-default btn-sm pull-right js-toggle-attendance" data-event-id="@currentEvent.Id">Going?</button>
+                }
             </div>
         </li>
     }

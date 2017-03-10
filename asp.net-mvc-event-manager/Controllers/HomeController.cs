@@ -1,4 +1,5 @@
 ﻿using asp.net_mvc_event_manager.Models;
+using asp.net_mvc_event_manager.ViewModels;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -22,7 +23,13 @@ namespace asp.net_mvc_event_manager.Controllers
                 .Include(e => e.Genre)
                 .Where(e => e.DateTime > DateTime.Now);
 
-            return View(upcomingEvents);
+            var viewModel = new HomeViewModel
+            {
+                UpcomingEvents = upcomingEvents,
+                ShowActions = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()
