@@ -1,0 +1,29 @@
+﻿@model IEnumerable<asp.net_mvc_event_manager.Models.Event>
+@{
+    ViewBag.Title = "My Upcoming Events";
+}
+
+<h2>My Upcoming Events</h2>
+<ul class="events voffset40">
+    @foreach (var currentEvent in Model)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @currentEvent.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @currentEvent.DateTime.ToString("d ")
+                </div>
+            </div>
+            <div class="details">
+                <span class="artist">
+                    @currentEvent.Venue
+                </span>
+                <span class="genre">
+                    @currentEvent.Genre.Name
+                </span>
+            </div>
+        </li>
+    }
+</ul>
