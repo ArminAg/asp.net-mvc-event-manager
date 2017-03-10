@@ -54,10 +54,11 @@ namespace asp.net_mvc_event_manager.Controllers
         {
             var viewModel = new EventFormViewModel()
             {
+                Heading = "Add Event",
                 Genres = _context.Genres.ToList()
             };
 
-            return View(viewModel);
+            return View("EventForm", viewModel);
         }
 
         [Authorize]
@@ -67,8 +68,9 @@ namespace asp.net_mvc_event_manager.Controllers
         {
             if (!ModelState.IsValid)
             {
+                viewModel.Heading = "Add Event";
                 viewModel.Genres = _context.Genres.ToList();
-                return View("Create", viewModel);
+                return View("EventForm", viewModel);
             }
 
             var newEvent = new Event()
@@ -80,6 +82,49 @@ namespace asp.net_mvc_event_manager.Controllers
             };
 
             _context.Events.Add(newEvent);
+            _context.SaveChanges();
+
+            return RedirectToAction("Mine", "Events");
+        }
+
+        [Authorize]
+        public ActionResult Edit(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var dbEvent = _context.Events.Single(e => e.Id == id && e.ArtistId == userId);
+
+            var viewModel = new EventFormViewModel()
+            {
+                Heading = "Edit Event",
+                Genres = _context.Genres.ToList(),
+                Id = dbEvent.Id,
+                Date = dbEvent.DateTime.ToString("d MMM yyyy"),
+                Time = dbEvent.DateTime.ToString("HH:mm"),
+                GenreId = dbEvent.GenreId,
+                Venue = dbEvent.Venue
+            };
+
+            return View("EventForm", viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(EventFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Heading = "Edit Event";
+                viewModel.Genres = _context.Genres.ToList();
+                return View("EventForm", viewModel);
+            }
+
+            var userId = User.Identity.GetUserId();
+            var existingEvent = _context.Events.Single(e => e.Id == viewModel.Id && e.ArtistId == userId);
+            existingEvent.Venue = viewModel.Venue;
+            existingEvent.DateTime = viewModel.GetDateTime();
+            existingEvent.GenreId = viewModel.GenreId;
+            
             _context.SaveChanges();
 
             return RedirectToAction("Mine", "Events");

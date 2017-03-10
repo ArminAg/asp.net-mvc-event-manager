@@ -111,7 +111,7 @@ h6,
 
 .form-control {
     font-size: 17px;
-    padding: 20px 15px;
+    height: 44px;
     border-radius: 6px;
 }
 
@@ -174,3 +174,12 @@ h6,
             .events > li .details .genre {
                 font-size: 15px;
             }
+
+.events > li .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.events > li:hover .actions {
+    display: block;
+}

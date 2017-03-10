@@ -23,6 +23,9 @@
                 <span class="genre">
                     @currentEvent.Genre.Name
                 </span>
+                <div class="actions">
+                    <a href="@Url.Action("Edit", "Events", new { id = currentEvent.Id })">Edit</a>
+                </div>
             </div>
         </li>
     }
