@@ -23,6 +23,32 @@ namespace asp.net_mvc_event_manager.Controllers
             return RedirectToAction("Index", "Home", new { query = viewModel.SearchTerm });
         }
 
+        public ActionResult Details(int id)
+        {
+            var currentEvent = _context.Events
+                .Include(e => e.Artist)
+                .Include(e => e.Genre)
+                .SingleOrDefault(e => e.Id == id);
+
+            if (currentEvent == null)
+                return HttpNotFound();
+
+            var viewModel = new EventDetailsViewModel { Event = currentEvent };
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+
+                viewModel.IsAttending = _context.Attendances
+                    .Any(a => a.EventId == currentEvent.Id && a.AttendeeId == userId);
+
+                viewModel.IsFollowing = _context.Followings
+                    .Any(f => f.FolloweeId == currentEvent.ArtistId && f.FollowerId == userId);
+            }
+            
+            return View(viewModel);
+        }
+
         [Authorize]
         public ActionResult Mine()
         {
