@@ -73,12 +73,18 @@ namespace asp.net_mvc_event_manager.Controllers
                 .Include(e => e.Artist)
                 .Include(e => e.Genre)
                 .ToList();
+            
+            var attendances = _context.Attendances
+                .Where(a => a.AttendeeId == userId && a.Event.DateTime > DateTime.Now)
+                .ToList()
+                .ToLookup(a => a.EventId);
 
             var viewModel = new EventsViewModel
             {
                 UpcomingEvents = events,
                 ShowActions = User.Identity.IsAuthenticated,
-                Heading = "Events I'm Attending"
+                Heading = "Events I'm Attending",
+                Attendances = attendances
             };
             return View("Events", viewModel);
         }

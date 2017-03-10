@@ -1,5 +1,6 @@
 ﻿using asp.net_mvc_event_manager.Models;
 using asp.net_mvc_event_manager.ViewModels;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -32,12 +33,19 @@ namespace asp.net_mvc_event_manager.Controllers
                             e.Venue.Contains(query));
             }
 
+            var userId = User.Identity.GetUserId();
+            var attendances = _context.Attendances
+                .Where(a => a.AttendeeId == userId && a.Event.DateTime > DateTime.Now)
+                .ToList()
+                .ToLookup(a => a.EventId);
+
             var viewModel = new EventsViewModel
             {
                 UpcomingEvents = upcomingEvents,
                 ShowActions = User.Identity.IsAuthenticated,
                 Heading = "Upcoming Events",
-                SearchTerm = query
+                SearchTerm = query,
+                Attendances = attendances
             };
 
             return View("Events", viewModel);
