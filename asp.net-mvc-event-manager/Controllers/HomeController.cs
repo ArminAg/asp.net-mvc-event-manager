@@ -23,13 +23,14 @@ namespace asp.net_mvc_event_manager.Controllers
                 .Include(e => e.Genre)
                 .Where(e => e.DateTime > DateTime.Now);
 
-            var viewModel = new HomeViewModel
+            var viewModel = new EventsViewModel
             {
                 UpcomingEvents = upcomingEvents,
-                ShowActions = User.Identity.IsAuthenticated
+                ShowActions = User.Identity.IsAuthenticated,
+                Heading = "Upcoming Events"
             };
 
-            return View(viewModel);
+            return View("Events", viewModel);
         }
 
         public ActionResult About()

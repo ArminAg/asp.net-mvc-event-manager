@@ -1,9 +1,10 @@
-﻿@model asp.net_mvc_event_manager.ViewModels.HomeViewModel
+﻿@model asp.net_mvc_event_manager.ViewModels.EventsViewModel
 @{
     ViewBag.Title = "Home Page";
 }
 
-<ul class="events">
+<h1>@Model.Heading</h1>
+<ul class="events voffset40">
     @foreach (var currentEvent in Model.UpcomingEvents)
     {
         <li>

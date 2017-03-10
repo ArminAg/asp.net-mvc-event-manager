@@ -230,7 +230,7 @@
     <Compile Include="Models\Following.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\EventsViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
@@ -288,7 +288,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Events.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -331,15 +331,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703091841441_OverrideConventionsForEventsAndGenres.resx">
       <DependentUpon>201703091841441_OverrideConventionsForEventsAndGenres.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703091848390_PopulateGenresTable.resx">
       <DependentUpon>201703091848390_PopulateGenresTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703091951457_AddForeignKeyPropertiesToEvent.resx">
       <DependentUpon>201703091951457_AddForeignKeyPropertiesToEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703092246210_AddNameToApplicationUser.resx">
       <DependentUpon>201703092246210_AddNameToApplicationUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703100830337_AddAttendance.resx">
       <DependentUpon>201703100830337_AddAttendance.cs</DependentUpon>
