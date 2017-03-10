@@ -80,6 +80,46 @@ span.field-validation-error {
     font-weight: 700;
 }
 
+.navbar-inverse .notifications {
+    position: relative;
+}
+
+    .navbar-inverse .notifications .badge {
+        position: absolute;
+        top: 8px;
+        right: 0;
+        background: #a80a0a;
+    }
+
+.popover {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.popover-notifications .popover-content {
+    padding: 0;
+}
+
+.popover-notifications ul.notifications {
+    list-style: none;
+    padding-left: 0;
+}
+
+    .popover-notifications ul.notifications > li {
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+    }
+
+        .popover-notifications ul.notifications > li:last-child {
+            border-bottom: none;
+        }
+
+    .popover-notifications ul.notifications .highlight {
+        font-weight: 700;
+    }
+
+
+
 .dropdown-menu {
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -175,11 +215,11 @@ h6,
                 font-size: 15px;
             }
 
-.events > li .actions {
-    font-size: 15px;
-    display: none;
-}
+        .events > li .actions {
+            font-size: 15px;
+            display: none;
+        }
 
-.events > li:hover .actions {
-    display: block;
-}
+        .events > li:hover .actions {
+            display: block;
+        }
