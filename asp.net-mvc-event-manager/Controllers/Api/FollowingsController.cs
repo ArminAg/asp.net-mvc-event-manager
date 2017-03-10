@@ -21,7 +21,7 @@ namespace asp.net_mvc_event_manager.Controllers.Api
         {
             var userId = User.Identity.GetUserId();
 
-            if (_context.Followings.Any(f => f.FolloweeId == userId && f.FolloweeId == followingDto.FolloweeId))
+            if (_context.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId))
                 return BadRequest("Following already exists.");
 
             var following = new Following
