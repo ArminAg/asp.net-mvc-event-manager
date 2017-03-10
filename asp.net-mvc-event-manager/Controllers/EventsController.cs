@@ -17,13 +17,19 @@ namespace asp.net_mvc_event_manager.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [HttpPost]
+        public ActionResult Search(EventsViewModel viewModel)
+        {
+            return RedirectToAction("Index", "Home", new { query = viewModel.SearchTerm });
+        }
+
         [Authorize]
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
             var events = _context.Events
-                .Where(e => e.ArtistId == userId && 
-                            e.DateTime > DateTime.Now && 
+                .Where(e => e.ArtistId == userId &&
+                            e.DateTime > DateTime.Now &&
                             !e.IsCanceled)
                 .Include(e => e.Genre)
                 .ToList();
@@ -127,7 +133,7 @@ namespace asp.net_mvc_event_manager.Controllers
                 .Single(e => e.Id == viewModel.Id && e.ArtistId == userId);
 
             existingEvent.Modify(viewModel.GetDateTime(), viewModel.Venue, viewModel.GenreId);
-            
+
             _context.SaveChanges();
 
             return RedirectToAction("Mine", "Events");
