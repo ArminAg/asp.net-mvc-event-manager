@@ -26,7 +26,7 @@ namespace asp.net_mvc_event_manager.Models
         {
             modelBuilder.Entity<Attendance>()
                 .HasRequired(a => a.Event)
-                .WithMany()
+                .WithMany(e => e.Attendances)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ApplicationUser>()
@@ -41,7 +41,7 @@ namespace asp.net_mvc_event_manager.Models
 
             modelBuilder.Entity<UserNotification>()
                 .HasRequired(n => n.User)
-                .WithMany()
+                .WithMany(u => u.UserNotifications)
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
