@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web.Http;
 
-namespace asp.net_mvc_event_manager.Controllers
+namespace asp.net_mvc_event_manager.Controllers.Api
 {
     [Authorize]
     public class FollowingsController : ApiController

@@ -6,7 +6,9 @@ namespace asp.net_mvc_event_manager.Models
     public class Event
     {
         public int Id { get; set; }
-        
+
+        public bool IsCanceled { get; set; }
+
         public ApplicationUser Artist { get; set; }
 
         public DateTime DateTime { get; set; }
