@@ -17,6 +17,8 @@ namespace asp.net_mvc_event_manager
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                         "~/Scripts/app/services/attendanceService.js",
+                        "~/Scripts/app/services/followingService.js",
+                        "~/Scripts/app/controllers/eventDetailsController.js",
                         "~/Scripts/app/controllers/eventsController.js",
                         "~/Scripts/app/app.js"));
 
