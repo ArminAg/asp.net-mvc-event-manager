@@ -15,6 +15,11 @@ namespace asp.net_mvc_event_manager
                         "~/Scripts/respond.js",
                         "~/Scripts/bootbox.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                        "~/Scripts/app/services/attendanceService.js",
+                        "~/Scripts/app/controllers/eventsController.js",
+                        "~/Scripts/app/app.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
