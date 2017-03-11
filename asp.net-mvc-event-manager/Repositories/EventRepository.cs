@@ -54,5 +54,10 @@ namespace asp.net_mvc_event_manager.Repositories
                 .Include(e => e.Genre)
                 .ToList();
         }
+
+        public void Add(Event newEvent)
+        {
+            _context.Events.Add(newEvent);
+        }
     }
 }

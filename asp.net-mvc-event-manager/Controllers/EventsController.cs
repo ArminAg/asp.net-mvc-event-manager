@@ -1,5 +1,5 @@
 ﻿using asp.net_mvc_event_manager.Models;
-using asp.net_mvc_event_manager.Repositories;
+using asp.net_mvc_event_manager.Persistence;
 using asp.net_mvc_event_manager.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Linq;
@@ -10,18 +10,12 @@ namespace asp.net_mvc_event_manager.Controllers
     public class EventsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly AttendanceRepository _attendanceRepository;
-        private readonly EventRepository _eventRepository;
-        private readonly FollowingRepository _followingRepository;
-        private readonly GenreRepository _genrerepository;
+        private readonly UnitOfWork _unitOfWork;
 
         public EventsController()
         {
             _context = new ApplicationDbContext();
-            _attendanceRepository = new AttendanceRepository(_context);
-            _eventRepository = new EventRepository(_context);
-            _followingRepository = new FollowingRepository(_context);
-            _genrerepository = new GenreRepository(_context);
+            _unitOfWork = new UnitOfWork(_context);
         }
 
         [HttpPost]
@@ -32,7 +26,7 @@ namespace asp.net_mvc_event_manager.Controllers
 
         public ActionResult Details(int id)
         {
-            var currentEvent = _eventRepository.GetEvent(id);
+            var currentEvent = _unitOfWork.Events.GetEvent(id);
 
             if (currentEvent == null)
                 return HttpNotFound();
@@ -42,8 +36,8 @@ namespace asp.net_mvc_event_manager.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
-                viewModel.IsAttending = _attendanceRepository.GetAttendance(currentEvent.Id , userId) != null;
-                viewModel.IsFollowing = _followingRepository.GetFollowing(currentEvent.ArtistId, userId) != null;
+                viewModel.IsAttending = _unitOfWork.Attendances.GetAttendance(currentEvent.Id , userId) != null;
+                viewModel.IsFollowing = _unitOfWork.Followings.GetFollowing(currentEvent.ArtistId, userId) != null;
             }
 
             return View(viewModel);
@@ -53,7 +47,7 @@ namespace asp.net_mvc_event_manager.Controllers
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
-            var events = _eventRepository.GetUpcomingEventsByArtist(userId);
+            var events = _unitOfWork.Events.GetUpcomingEventsByArtist(userId);
 
             return View(events);
         }
@@ -65,10 +59,10 @@ namespace asp.net_mvc_event_manager.Controllers
 
             var viewModel = new EventsViewModel
             {
-                UpcomingEvents = _eventRepository.GetEventsUserAttending(userId),
+                UpcomingEvents = _unitOfWork.Events.GetEventsUserAttending(userId),
                 ShowActions = User.Identity.IsAuthenticated,
                 Heading = "Events I'm Attending",
-                Attendances = _attendanceRepository.GetFutureAteendances(userId).ToLookup(a => a.EventId)
+                Attendances = _unitOfWork.Attendances.GetFutureAteendances(userId).ToLookup(a => a.EventId)
             };
 
             return View("Events", viewModel);
@@ -80,7 +74,7 @@ namespace asp.net_mvc_event_manager.Controllers
             var viewModel = new EventFormViewModel()
             {
                 Heading = "Add Event",
-                Genres = _genrerepository.GetGenres()
+                Genres = _unitOfWork.Genres.GetGenres()
             };
 
             return View("EventForm", viewModel);
@@ -106,8 +100,8 @@ namespace asp.net_mvc_event_manager.Controllers
                 Venue = viewModel.Venue
             };
 
-            _context.Events.Add(newEvent);
-            _context.SaveChanges();
+            _unitOfWork.Events.Add(newEvent);
+            _unitOfWork.Complete();
 
             return RedirectToAction("Mine", "Events");
         }
@@ -115,7 +109,7 @@ namespace asp.net_mvc_event_manager.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            var dbEvent = _eventRepository.GetEvent(id);
+            var dbEvent = _unitOfWork.Events.GetEvent(id);
 
             if (dbEvent == null)
                 return HttpNotFound();
@@ -149,7 +143,7 @@ namespace asp.net_mvc_event_manager.Controllers
                 return View("EventForm", viewModel);
             }
             
-            var existingEvent = _eventRepository.GetEventWithAttendees(viewModel.Id);
+            var existingEvent = _unitOfWork.Events.GetEventWithAttendees(viewModel.Id);
 
             if (existingEvent == null)
                 return HttpNotFound();
@@ -159,7 +153,7 @@ namespace asp.net_mvc_event_manager.Controllers
 
             existingEvent.Modify(viewModel.GetDateTime(), viewModel.Venue, viewModel.GenreId);
 
-            _context.SaveChanges();
+            _unitOfWork.Complete();
 
             return RedirectToAction("Mine", "Events");
         }
