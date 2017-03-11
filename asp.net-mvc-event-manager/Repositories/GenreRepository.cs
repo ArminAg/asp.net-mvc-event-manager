@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace asp.net_mvc_event_manager.Repositories
 {
-    public class GenreRepository
+    public class GenreRepository : IGenreRepository
     {
         private ApplicationDbContext _context;
 

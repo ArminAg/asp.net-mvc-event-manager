@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace asp.net_mvc_event_manager.Repositories
 {
-    public class EventRepository
+    public class EventRepository : IEventRepository
     {
         private ApplicationDbContext _context;
 

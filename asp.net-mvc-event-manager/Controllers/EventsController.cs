@@ -9,13 +9,11 @@ namespace asp.net_mvc_event_manager.Controllers
 {
     public class EventsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         public EventsController()
         {
-            _context = new ApplicationDbContext();
-            _unitOfWork = new UnitOfWork(_context);
+            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
 
         [HttpPost]
@@ -88,7 +86,7 @@ namespace asp.net_mvc_event_manager.Controllers
             if (!ModelState.IsValid)
             {
                 viewModel.Heading = "Add Event";
-                viewModel.Genres = _context.Genres.ToList();
+                viewModel.Genres = _unitOfWork.Genres.GetGenres();
                 return View("EventForm", viewModel);
             }
 
@@ -120,7 +118,7 @@ namespace asp.net_mvc_event_manager.Controllers
             var viewModel = new EventFormViewModel()
             {
                 Heading = "Edit Event",
-                Genres = _context.Genres.ToList(),
+                Genres = _unitOfWork.Genres.GetGenres(),
                 Id = dbEvent.Id,
                 Date = dbEvent.DateTime.ToString("d MMM yyyy"),
                 Time = dbEvent.DateTime.ToString("HH:mm"),
@@ -139,7 +137,7 @@ namespace asp.net_mvc_event_manager.Controllers
             if (!ModelState.IsValid)
             {
                 viewModel.Heading = "Edit Event";
-                viewModel.Genres = _context.Genres.ToList();
+                viewModel.Genres = _unitOfWork.Genres.GetGenres();
                 return View("EventForm", viewModel);
             }
             

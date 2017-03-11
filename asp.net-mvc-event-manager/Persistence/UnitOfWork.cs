@@ -3,14 +3,14 @@ using asp.net_mvc_event_manager.Repositories;
 
 namespace asp.net_mvc_event_manager.Persistence
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EventRepository Events { get; private set; }
-        public AttendanceRepository Attendances { get; private set; }
-        public FollowingRepository Followings { get; private set; }
-        public GenreRepository Genres { get; private set; }
+        public IEventRepository Events { get; private set; }
+        public IAttendanceRepository Attendances { get; private set; }
+        public IFollowingRepository Followings { get; private set; }
+        public IGenreRepository Genres { get; private set; }
 
 
         public UnitOfWork(ApplicationDbContext context)

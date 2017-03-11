@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace asp.net_mvc_event_manager.Repositories
 {
-    public class FollowingRepository
+    public class FollowingRepository : IFollowingRepository
     {
         private ApplicationDbContext _context;
 
