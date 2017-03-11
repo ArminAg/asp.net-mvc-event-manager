@@ -27,5 +27,15 @@ namespace asp.net_mvc_event_manager.Persistence.Repositories
             return _context.Attendances
                     .SingleOrDefault(a => a.EventId == eventId && a.AttendeeId == attendeeId);
         }
+
+        public void Add(Attendance attendance)
+        {
+            _context.Attendances.Add(attendance);
+        }
+
+        public void Remove(Attendance attendance)
+        {
+            _context.Attendances.Remove(attendance);
+        }
     }
 }

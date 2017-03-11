@@ -56,6 +56,25 @@ namespace asp.net_mvc_event_manager.Persistence.Repositories
                 .ToList();
         }
 
+        public IEnumerable<Event> GetUpcomingEvents(string searchTerm = null)
+        {
+            var upcomingEvents = _context.Events
+                .Include(e => e.Artist)
+                .Include(e => e.Genre)
+                .Where(e => e.DateTime > DateTime.Now && !e.IsCanceled);
+
+            if (!String.IsNullOrWhiteSpace(searchTerm))
+            {
+                upcomingEvents = upcomingEvents
+                    .Where(e =>
+                            e.Artist.Name.Contains(searchTerm) ||
+                            e.Genre.Name.Contains(searchTerm) ||
+                            e.Venue.Contains(searchTerm));
+            }
+
+            return upcomingEvents.ToList();
+        }
+
         public void Add(Event newEvent)
         {
             _context.Events.Add(newEvent);

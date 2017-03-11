@@ -11,5 +11,6 @@ namespace asp.net_mvc_event_manager.Core.Repositories
         IEnumerable<Event> GetEventsUserAttending(string userId);
         Event GetEventWithAttendees(int eventId);
         IEnumerable<Event> GetUpcomingEventsByArtist(string userId);
+        IEnumerable<Event> GetUpcomingEvents(string searchTerm = null);
     }
 }

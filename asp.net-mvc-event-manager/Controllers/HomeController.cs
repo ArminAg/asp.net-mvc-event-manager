@@ -1,9 +1,6 @@
-﻿using asp.net_mvc_event_manager.Core.ViewModels;
-using asp.net_mvc_event_manager.Persistence;
-using asp.net_mvc_event_manager.Persistence.Repositories;
+﻿using asp.net_mvc_event_manager.Core;
+using asp.net_mvc_event_manager.Core.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,33 +8,19 @@ namespace asp.net_mvc_event_manager.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext _context;
-        private readonly AttendanceRepository _attendanceRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController()
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _attendanceRepository = new AttendanceRepository(_context);
+            _unitOfWork = unitOfWork;
         }
 
         public ActionResult Index(string query = null)
         {
-            var upcomingEvents = _context.Events
-                .Include(e => e.Artist)
-                .Include(e => e.Genre)
-                .Where(e => e.DateTime > DateTime.Now && !e.IsCanceled);
-
-            if (!String.IsNullOrWhiteSpace(query))
-            {
-                upcomingEvents = upcomingEvents
-                    .Where(e => 
-                            e.Artist.Name.Contains(query) || 
-                            e.Genre.Name.Contains(query) || 
-                            e.Venue.Contains(query));
-            }
+            var upcomingEvents = _unitOfWork.Events.GetUpcomingEvents(query);
 
             var userId = User.Identity.GetUserId();
-            var attendances = _attendanceRepository.GetFutureAteendances(userId).ToLookup(a => a.EventId);
+            var attendances = _unitOfWork.Attendances.GetFutureAteendances(userId).ToLookup(a => a.EventId);
 
             var viewModel = new EventsViewModel
             {

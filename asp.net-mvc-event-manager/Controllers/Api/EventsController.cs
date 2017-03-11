@@ -1,7 +1,5 @@
-﻿using asp.net_mvc_event_manager.Persistence;
+﻿using asp.net_mvc_event_manager.Core;
 using Microsoft.AspNet.Identity;
-using System.Data.Entity;
-using System.Linq;
 using System.Web.Http;
 
 namespace asp.net_mvc_event_manager.Controllers.Api
@@ -9,27 +7,28 @@ namespace asp.net_mvc_event_manager.Controllers.Api
     [Authorize]
     public class EventsController : ApiController
     {
-        private ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public EventsController()
+        public EventsController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
         }
 
         [HttpDelete]
         public IHttpActionResult Cancel(int id)
         {
             var userId = User.Identity.GetUserId();
-            var currentEvent = _context.Events
-                .Include(e => e.Attendances.Select(a => a.Attendee))
-                .Single(e => e.Id == id && e.ArtistId == userId);
+            var currentEvent = _unitOfWork.Events.GetEventWithAttendees(id);
 
-            if (currentEvent.IsCanceled)
+            if (currentEvent == null || currentEvent.IsCanceled)
                 return NotFound();
 
+            if (currentEvent.ArtistId != userId)
+                return Unauthorized();
+
             currentEvent.Cancel();
-                        
-            _context.SaveChanges();
+
+            _unitOfWork.Complete();
 
             return Ok();
         }

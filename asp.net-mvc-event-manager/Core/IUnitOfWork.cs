@@ -8,6 +8,9 @@ namespace asp.net_mvc_event_manager.Core
         IEventRepository Events { get; }
         IFollowingRepository Followings { get; }
         IGenreRepository Genres { get; }
+        IApplicationUserRepository Users { get; }
+        INotificationRepository Notifications { get; }
+        IUserNotificationRepository UserNotifications { get; }
 
         void Complete();
     }

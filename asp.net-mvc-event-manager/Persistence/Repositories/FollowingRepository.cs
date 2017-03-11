@@ -12,11 +12,21 @@ namespace asp.net_mvc_event_manager.Persistence.Repositories
         {
             _context = context;
         }
-
+        
         public Following GetFollowing(string followeeId, string followerId)
         {
             return _context.Followings
                     .SingleOrDefault(f => f.FolloweeId == followeeId && f.FollowerId == followerId);
+        }
+
+        public void Add(Following following)
+        {
+            _context.Followings.Add(following);
+        }
+
+        public void Remove(Following following)
+        {
+            _context.Followings.Remove(following);
         }
     }
 }

@@ -1,8 +1,7 @@
-﻿using asp.net_mvc_event_manager.Core.Dtos;
+﻿using asp.net_mvc_event_manager.Core;
+using asp.net_mvc_event_manager.Core.Dtos;
 using asp.net_mvc_event_manager.Core.Models;
-using asp.net_mvc_event_manager.Persistence;
 using Microsoft.AspNet.Identity;
-using System.Linq;
 using System.Web.Http;
 
 namespace asp.net_mvc_event_manager.Controllers.Api
@@ -10,28 +9,30 @@ namespace asp.net_mvc_event_manager.Controllers.Api
     [Authorize]
     public class AttendancesController : ApiController
     {
-        private ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AttendancesController()
+        public AttendancesController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
         }
 
         [HttpPost]
         public IHttpActionResult Attend(AttendanceDto attendanceDto)
         {
             var userId = User.Identity.GetUserId();
-            if (_context.Attendances.Any(a => a.AttendeeId == userId && a.EventId == attendanceDto.EventId))
+
+            var attendance = _unitOfWork.Attendances.GetAttendance(attendanceDto.EventId, userId);
+            if (attendance != null)
                 return BadRequest("The attendance already exists.");
 
-            var attendace = new Attendance
+            attendance = new Attendance
             {
                 EventId = attendanceDto.EventId,
                 AttendeeId = userId
             };
 
-            _context.Attendances.Add(attendace);
-            _context.SaveChanges();
+            _unitOfWork.Attendances.Add(attendance);
+            _unitOfWork.Complete();
 
             return Ok();
         }
@@ -41,14 +42,13 @@ namespace asp.net_mvc_event_manager.Controllers.Api
         {
             var userId = User.Identity.GetUserId();
 
-            var attendance = _context.Attendances
-                .SingleOrDefault(a => a.AttendeeId == userId && a.EventId == id);
+            var attendance = _unitOfWork.Attendances.GetAttendance(id, userId);
 
             if (attendance == null)
                 return NotFound();
 
-            _context.Attendances.Remove(attendance);
-            _context.SaveChanges();
+            _unitOfWork.Attendances.Remove(attendance);
+            _unitOfWork.Complete();
 
             return Ok(id);
         }
