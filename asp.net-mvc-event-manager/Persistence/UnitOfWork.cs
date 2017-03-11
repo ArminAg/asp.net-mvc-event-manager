@@ -1,5 +1,6 @@
-﻿using asp.net_mvc_event_manager.Models;
-using asp.net_mvc_event_manager.Repositories;
+﻿using asp.net_mvc_event_manager.Core;
+using asp.net_mvc_event_manager.Core.Repositories;
+using asp.net_mvc_event_manager.Persistence.Repositories;
 
 namespace asp.net_mvc_event_manager.Persistence
 {

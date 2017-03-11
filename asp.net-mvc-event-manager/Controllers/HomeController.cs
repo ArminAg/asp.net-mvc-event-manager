@@ -1,6 +1,6 @@
-﻿using asp.net_mvc_event_manager.Models;
-using asp.net_mvc_event_manager.Repositories;
-using asp.net_mvc_event_manager.ViewModels;
+﻿using asp.net_mvc_event_manager.Core.ViewModels;
+using asp.net_mvc_event_manager.Persistence;
+using asp.net_mvc_event_manager.Persistence.Repositories;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Data.Entity;

@@ -1,5 +1,5 @@
-﻿using asp.net_mvc_event_manager.Models;
-using asp.net_mvc_event_manager.ViewModels.Account;
+﻿using asp.net_mvc_event_manager.Core.Models;
+using asp.net_mvc_event_manager.Core.ViewModels.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;

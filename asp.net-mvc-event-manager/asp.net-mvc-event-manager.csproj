@@ -219,106 +219,106 @@
     <Compile Include="Controllers\Api\FollowingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Dtos\AttendanceDto.cs" />
-    <Compile Include="Dtos\EventDto.cs" />
-    <Compile Include="Dtos\FollowingDto.cs" />
-    <Compile Include="Dtos\GenreDto.cs" />
-    <Compile Include="Dtos\NotificationDto.cs" />
-    <Compile Include="Dtos\UserDto.cs" />
+    <Compile Include="Core\Dtos\AttendanceDto.cs" />
+    <Compile Include="Core\Dtos\EventDto.cs" />
+    <Compile Include="Core\Dtos\FollowingDto.cs" />
+    <Compile Include="Core\Dtos\GenreDto.cs" />
+    <Compile Include="Core\Dtos\NotificationDto.cs" />
+    <Compile Include="Core\Dtos\UserDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703091813061_InitialModel.cs" />
-    <Compile Include="Migrations\201703091813061_InitialModel.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703091813061_InitialModel.cs" />
+    <Compile Include="Persistence\Migrations\201703091813061_InitialModel.Designer.cs">
       <DependentUpon>201703091813061_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703091833093_CreateEventTable.cs" />
-    <Compile Include="Migrations\201703091833093_CreateEventTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703091833093_CreateEventTable.cs" />
+    <Compile Include="Persistence\Migrations\201703091833093_CreateEventTable.Designer.cs">
       <DependentUpon>201703091833093_CreateEventTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703091841441_OverrideConventionsForEventsAndGenres.cs" />
-    <Compile Include="Migrations\201703091841441_OverrideConventionsForEventsAndGenres.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703091841441_OverrideConventionsForEventsAndGenres.cs" />
+    <Compile Include="Persistence\Migrations\201703091841441_OverrideConventionsForEventsAndGenres.Designer.cs">
       <DependentUpon>201703091841441_OverrideConventionsForEventsAndGenres.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703091848390_PopulateGenresTable.cs" />
-    <Compile Include="Migrations\201703091848390_PopulateGenresTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703091848390_PopulateGenresTable.cs" />
+    <Compile Include="Persistence\Migrations\201703091848390_PopulateGenresTable.Designer.cs">
       <DependentUpon>201703091848390_PopulateGenresTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703091951457_AddForeignKeyPropertiesToEvent.cs" />
-    <Compile Include="Migrations\201703091951457_AddForeignKeyPropertiesToEvent.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703091951457_AddForeignKeyPropertiesToEvent.cs" />
+    <Compile Include="Persistence\Migrations\201703091951457_AddForeignKeyPropertiesToEvent.Designer.cs">
       <DependentUpon>201703091951457_AddForeignKeyPropertiesToEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703092246210_AddNameToApplicationUser.cs" />
-    <Compile Include="Migrations\201703092246210_AddNameToApplicationUser.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703092246210_AddNameToApplicationUser.cs" />
+    <Compile Include="Persistence\Migrations\201703092246210_AddNameToApplicationUser.Designer.cs">
       <DependentUpon>201703092246210_AddNameToApplicationUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703100830337_AddAttendance.cs" />
-    <Compile Include="Migrations\201703100830337_AddAttendance.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703100830337_AddAttendance.cs" />
+    <Compile Include="Persistence\Migrations\201703100830337_AddAttendance.Designer.cs">
       <DependentUpon>201703100830337_AddAttendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703100930560_AddFollowing.cs" />
-    <Compile Include="Migrations\201703100930560_AddFollowing.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703100930560_AddFollowing.cs" />
+    <Compile Include="Persistence\Migrations\201703100930560_AddFollowing.Designer.cs">
       <DependentUpon>201703100930560_AddFollowing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703101248208_AddIsCanceledToEvent.cs" />
-    <Compile Include="Migrations\201703101248208_AddIsCanceledToEvent.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703101248208_AddIsCanceledToEvent.cs" />
+    <Compile Include="Persistence\Migrations\201703101248208_AddIsCanceledToEvent.Designer.cs">
       <DependentUpon>201703101248208_AddIsCanceledToEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703101417541_AddNotification.cs" />
-    <Compile Include="Migrations\201703101417541_AddNotification.Designer.cs">
+    <Compile Include="Persistence\Migrations\201703101417541_AddNotification.cs" />
+    <Compile Include="Persistence\Migrations\201703101417541_AddNotification.Designer.cs">
       <DependentUpon>201703101417541_AddNotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\Attendance.cs" />
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\Following.cs" />
-    <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Notification.cs" />
-    <Compile Include="Models\NotificationType.cs" />
-    <Compile Include="Models\UserNotification.cs" />
-    <Compile Include="Persistence\IUnitOfWork.cs" />
+    <Compile Include="Persistence\Migrations\Configuration.cs" />
+    <Compile Include="Persistence\ApplicationDbContext.cs" />
+    <Compile Include="Core\Models\Attendance.cs" />
+    <Compile Include="Core\Models\Event.cs" />
+    <Compile Include="Core\Models\Following.cs" />
+    <Compile Include="Core\Models\Genre.cs" />
+    <Compile Include="Core\Models\ApplicationUser.cs" />
+    <Compile Include="Core\Models\Notification.cs" />
+    <Compile Include="Core\Models\NotificationType.cs" />
+    <Compile Include="Core\Models\UserNotification.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
-    <Compile Include="Repositories\AttendanceRepository.cs" />
-    <Compile Include="Repositories\EventRepository.cs" />
-    <Compile Include="Repositories\FollowingRepository.cs" />
-    <Compile Include="Repositories\GenreRepository.cs" />
-    <Compile Include="Repositories\IAttendanceRepository.cs" />
-    <Compile Include="Repositories\IEventRepository.cs" />
-    <Compile Include="Repositories\IFollowingRepository.cs" />
-    <Compile Include="Repositories\IGenreRepository.cs" />
-    <Compile Include="ViewModels\EventDetailsViewModel.cs" />
-    <Compile Include="ViewModels\EventsViewModel.cs" />
-    <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
-    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
-    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
-    <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
-    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
-    <Compile Include="ViewModels\Manage\IndexViewModel.cs" />
-    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
+    <Compile Include="Persistence\Repositories\AttendanceRepository.cs" />
+    <Compile Include="Persistence\Repositories\EventRepository.cs" />
+    <Compile Include="Persistence\Repositories\FollowingRepository.cs" />
+    <Compile Include="Persistence\Repositories\GenreRepository.cs" />
+    <Compile Include="Core\Repositories\IAttendanceRepository.cs" />
+    <Compile Include="Core\Repositories\IEventRepository.cs" />
+    <Compile Include="Core\Repositories\IFollowingRepository.cs" />
+    <Compile Include="Core\Repositories\IGenreRepository.cs" />
+    <Compile Include="Core\ViewModels\EventDetailsViewModel.cs" />
+    <Compile Include="Core\ViewModels\EventsViewModel.cs" />
+    <Compile Include="Core\ViewModels\Manage\AddPhoneNumberViewModel.cs" />
+    <Compile Include="Core\ViewModels\Manage\ChangePasswordViewModel.cs" />
+    <Compile Include="Core\ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
+    <Compile Include="Core\ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Core\ViewModels\Account\ExternalLoginListViewModel.cs" />
+    <Compile Include="Core\ViewModels\Manage\FactorViewModel.cs" />
+    <Compile Include="Core\ViewModels\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="Core\ViewModels\Account\ForgotViewModel.cs" />
+    <Compile Include="Core\ViewModels\Manage\IndexViewModel.cs" />
+    <Compile Include="Core\ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="Core\ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\EventFormViewModel.cs" />
-    <Compile Include="ViewModels\FutureDate.cs" />
-    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
-    <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
-    <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
-    <Compile Include="ViewModels\ValidTime.cs" />
-    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="Core\ViewModels\EventFormViewModel.cs" />
+    <Compile Include="Core\ViewModels\FutureDate.cs" />
+    <Compile Include="Core\ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="Core\ViewModels\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="Core\ViewModels\Account\SendCodeViewModel.cs" />
+    <Compile Include="Core\ViewModels\Manage\SetPasswordViewModel.cs" />
+    <Compile Include="Core\ViewModels\ValidTime.cs" />
+    <Compile Include="Core\ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="Core\ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app\app.js" />
@@ -384,44 +384,44 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703091813061_InitialModel.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703091813061_InitialModel.resx">
       <DependentUpon>201703091813061_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703091833093_CreateEventTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703091833093_CreateEventTable.resx">
       <DependentUpon>201703091833093_CreateEventTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703091841441_OverrideConventionsForEventsAndGenres.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703091841441_OverrideConventionsForEventsAndGenres.resx">
       <DependentUpon>201703091841441_OverrideConventionsForEventsAndGenres.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703091848390_PopulateGenresTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703091848390_PopulateGenresTable.resx">
       <DependentUpon>201703091848390_PopulateGenresTable.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703091951457_AddForeignKeyPropertiesToEvent.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703091951457_AddForeignKeyPropertiesToEvent.resx">
       <DependentUpon>201703091951457_AddForeignKeyPropertiesToEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703092246210_AddNameToApplicationUser.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703092246210_AddNameToApplicationUser.resx">
       <DependentUpon>201703092246210_AddNameToApplicationUser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703100830337_AddAttendance.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703100830337_AddAttendance.resx">
       <DependentUpon>201703100830337_AddAttendance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703100930560_AddFollowing.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703100930560_AddFollowing.resx">
       <DependentUpon>201703100930560_AddFollowing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703101248208_AddIsCanceledToEvent.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703101248208_AddIsCanceledToEvent.resx">
       <DependentUpon>201703101248208_AddIsCanceledToEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703101417541_AddNotification.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201703101417541_AddNotification.resx">
       <DependentUpon>201703101417541_AddNotification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

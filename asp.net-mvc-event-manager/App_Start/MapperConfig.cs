@@ -1,5 +1,5 @@
-﻿using asp.net_mvc_event_manager.Dtos;
-using asp.net_mvc_event_manager.Models;
+﻿using asp.net_mvc_event_manager.Core.Dtos;
+using asp.net_mvc_event_manager.Core.Models;
 using AutoMapper;
 
 namespace asp.net_mvc_event_manager.App_Start

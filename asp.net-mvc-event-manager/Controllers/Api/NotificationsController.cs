@@ -1,5 +1,5 @@
-﻿using asp.net_mvc_event_manager.Dtos;
-using asp.net_mvc_event_manager.Models;
+﻿using asp.net_mvc_event_manager.Core.Dtos;
+using asp.net_mvc_event_manager.Persistence;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;

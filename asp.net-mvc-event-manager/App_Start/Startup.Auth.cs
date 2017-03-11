@@ -1,11 +1,11 @@
-﻿using System;
+﻿using asp.net_mvc_event_manager.Core.Models;
+using asp.net_mvc_event_manager.Persistence;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using asp.net_mvc_event_manager.Models;
+using System;
 
 namespace asp.net_mvc_event_manager
 {
