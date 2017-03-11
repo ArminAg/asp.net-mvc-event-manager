@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace asp.net_mvc_event_manager.Core.Models
 {
@@ -10,8 +9,6 @@ namespace asp.net_mvc_event_manager.Core.Models
         public NotificationType Type { get; private set; }
         public DateTime? OriginalDateTime { get; private set; }
         public string OriginalVenue { get; private set; }
-
-        [Required]
         public Event Event { get; private set; }
 
         // Available for Entity Framework

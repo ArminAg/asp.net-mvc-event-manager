@@ -36,6 +36,7 @@ namespace asp.net_mvc_event_manager.Core.ViewModels
         public string Time { get; set; }
 
         [Required]
+        [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
         public IEnumerable<Genre> Genres { get; set; }
