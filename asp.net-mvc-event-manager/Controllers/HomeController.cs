@@ -1,4 +1,5 @@
 ﻿using asp.net_mvc_event_manager.Models;
+using asp.net_mvc_event_manager.Repositories;
 using asp.net_mvc_event_manager.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
@@ -11,10 +12,12 @@ namespace asp.net_mvc_event_manager.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext _context;
+        private readonly AttendanceRepository _attendanceRepository;
 
         public HomeController()
         {
             _context = new ApplicationDbContext();
+            _attendanceRepository = new AttendanceRepository(_context);
         }
 
         public ActionResult Index(string query = null)
@@ -34,10 +37,7 @@ namespace asp.net_mvc_event_manager.Controllers
             }
 
             var userId = User.Identity.GetUserId();
-            var attendances = _context.Attendances
-                .Where(a => a.AttendeeId == userId && a.Event.DateTime > DateTime.Now)
-                .ToList()
-                .ToLookup(a => a.EventId);
+            var attendances = _attendanceRepository.GetFutureAteendances(userId).ToLookup(a => a.EventId);
 
             var viewModel = new EventsViewModel
             {
