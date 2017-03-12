@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace asp.net_mvc_event_manager.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public DbSet<Event> Events { get; set; }
         public DbSet<Genre> Genres { get; set; }

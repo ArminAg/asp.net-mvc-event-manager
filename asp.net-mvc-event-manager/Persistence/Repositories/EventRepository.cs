@@ -9,9 +9,9 @@ namespace asp.net_mvc_event_manager.Persistence.Repositories
 {
     public class EventRepository : IEventRepository
     {
-        private ApplicationDbContext _context;
+        private IApplicationDbContext _context;
 
-        public EventRepository(ApplicationDbContext context)
+        public EventRepository(IApplicationDbContext context)
         {
             _context = context;
         }
@@ -49,7 +49,7 @@ namespace asp.net_mvc_event_manager.Persistence.Repositories
         public IEnumerable<Event> GetEventsUserAttending(string userId)
         {
             return _context.Attendances
-                .Where(a => a.AttendeeId == userId)
+                .Where(a => a.AttendeeId == userId && a.Event.DateTime > DateTime.Now)
                 .Select(a => a.Event)
                 .Include(e => e.Artist)
                 .Include(e => e.Genre)
