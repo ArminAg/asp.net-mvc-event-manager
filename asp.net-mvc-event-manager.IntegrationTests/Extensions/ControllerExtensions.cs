@@ -17,13 +17,9 @@ namespace asp.net_mvc_event_manager.IntegrationTests.Extensions
 
             var principal = new GenericPrincipal(identity, null);
 
-            var mockHttpContext = new Mock<HttpContextBase>();
-            mockHttpContext.SetupGet(c => c.User).Returns(principal);
-
-            var mockControllerContext = new Mock<ControllerContext>();
-            mockControllerContext.SetupGet(c => c.HttpContext).Returns(mockHttpContext.Object);
-
-            controller.ControllerContext = mockControllerContext.Object;
+            controller.ControllerContext = Mock.Of<ControllerContext>(ctx => 
+                    ctx.HttpContext == Mock.Of<HttpContextBase>(http => 
+                        http.User == principal));
         }
     }
 }
