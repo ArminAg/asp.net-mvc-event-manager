@@ -25,7 +25,9 @@ namespace asp.net_mvc_event_manager.Core.Models
                 throw new ArgumentNullException("notification");
 
             User = user;
+            UserId = user.Id;
             Notification = notification;
+            NotificationId = notification.Id;
         }
 
         public void Read()
