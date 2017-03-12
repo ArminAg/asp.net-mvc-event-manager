@@ -42,7 +42,7 @@ namespace asp.net_mvc_event_manager.Controllers
         }
 
         [Authorize]
-        public ActionResult Mine()
+        public ViewResult Mine()
         {
             var userId = User.Identity.GetUserId();
             var events = _unitOfWork.Events.GetUpcomingEventsByArtist(userId);
