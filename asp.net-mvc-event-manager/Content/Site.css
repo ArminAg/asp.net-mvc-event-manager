@@ -16,15 +16,15 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+ /*Set width on the form input elements since they're 100% wide by default*/ 
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 350px;
 }
 
 span.field-validation-error {
-    color: red;
+    color: #ff4342;
     font-weight: 700;
 }
 
@@ -54,10 +54,31 @@ span.field-validation-error {
 
 /* Bootstrap Overrides */
 
+a {
+    color: #3498db;
+}
+
+    a:hover, a:focus {
+        color: #3498db;
+        text-decoration: underline;
+    }
+
+.btn-default {
+    color: #3498db;
+    background-color: transparent;
+    border-color: #3498db;
+}
+
+    .btn-default:hover {
+        color: #ffffff;
+        background-color: #3498db;
+        border-color: #3498db;
+    }
+
 @font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('fonts/glyphicons-halflings-regular.eot');
-  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+    font-family: 'Glyphicons Halflings';
+    src: url('fonts/glyphicons-halflings-regular.eot');
+    src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
 .navbar-inverse {
@@ -77,13 +98,26 @@ span.field-validation-error {
         background-color: rgba(205, 40, 39, 0.55);
     }
 
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        color: #fff;
+        background-color: transparent;
+    }
+
+
     .navbar-inverse .navbar-nav > .dropdown > a .caret {
         border-top-color: #fff;
         border-bottom-color: #fff;
     }
 
 .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21px;
     font-weight: 700;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #fff;
+    background-color: transparent;
 }
 
 .navbar-inverse .notifications {
@@ -95,11 +129,16 @@ span.field-validation-error {
         top: 8px;
         right: 0;
         background: #a80a0a;
+        color: #fff;
     }
 
 .popover {
     box-shadow: none;
     -webkit-box-shadow: none;
+}
+
+.popover-title {
+    background-color: none
 }
 
 .popover-notifications .popover-content {
@@ -132,10 +171,10 @@ span.field-validation-error {
 }
 
 body {
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
 }
 
-body,
 h1,
 h2,
 h3,
@@ -148,28 +187,24 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.form-group {
+/*.form-group {
     margin-bottom: 20px;
-}
+}*/
 
 .form-control {
     font-size: 17px;
-    height: 44px;
+    height: 50px;
     border-radius: 6px;
 }
 
-    .form-control:focus {
-        border-color: #2196f3;
-        box-shadow: none;
-        -webkit-box-shadow: none;
-    }
+.well {
+    border-radius: 6px;
+}
 
 .btn {
-    /*font-size: 17px;
-    padding: 7px 20px;*/
     border-radius: 6px;
 }
 
@@ -185,7 +220,7 @@ h6,
     }
 
         .events > li .date {
-            background: red;
+            background: #ff4342;
             color: white;
             text-align: center;
             width: 60px;

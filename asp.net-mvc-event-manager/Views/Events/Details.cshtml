@@ -3,7 +3,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>
+<h1>
     @Model.Event.Artist.Name
     @if (User.Identity.IsAuthenticated)
     {
@@ -16,7 +16,7 @@
             <button class="btn btn-default js-toggle-follow" data-user-id="@Model.Event.ArtistId">Follow</button>
         }
     }
-</h2>
+</h1>
 
 <p>Performing at @Model.Event.Venue on @Model.Event.DateTime.ToString("d MMM") at @Model.Event.DateTime.ToString("HH:mm")</p>
 

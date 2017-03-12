@@ -41,7 +41,7 @@
                 </span>
                 @if (Model.ShowActions && !currentEvent.IsCanceled)
                 {
-                    <button class="btn @(Model.Attendances.Contains(currentEvent.Id) ? "btn-info" : "btn-default") btn-sm js-toggle-attendance" data-event-id="@currentEvent.Id">
+                    <button class="btn @(Model.Attendances.Contains(currentEvent.Id) ? "btn-info" : "btn-default") btn-xs js-toggle-attendance" data-event-id="@currentEvent.Id">
                         @(Model.Attendances.Contains(currentEvent.Id) ? "Going" : "Going?")
                     </button>
                 }
