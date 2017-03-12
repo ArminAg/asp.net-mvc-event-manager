@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp.net-mvc-event-manager",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp.net-mvc-event-manager.Tests", "asp.net-mvc-event-manager.Tests\asp.net-mvc-event-manager.Tests.csproj", "{23E1A258-856C-48E5-BC88-EE5A2BFA8805}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp.net-mvc-event-manager.IntegrationTests", "asp.net-mvc-event-manager.IntegrationTests\asp.net-mvc-event-manager.IntegrationTests.csproj", "{10CAF2C8-849D-431C-B304-BA6422311607}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{23E1A258-856C-48E5-BC88-EE5A2BFA8805}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23E1A258-856C-48E5-BC88-EE5A2BFA8805}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23E1A258-856C-48E5-BC88-EE5A2BFA8805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10CAF2C8-849D-431C-B304-BA6422311607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10CAF2C8-849D-431C-B304-BA6422311607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10CAF2C8-849D-431C-B304-BA6422311607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10CAF2C8-849D-431C-B304-BA6422311607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

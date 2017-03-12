@@ -2,7 +2,7 @@ namespace asp.net_mvc_event_manager.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<asp.net_mvc_event_manager.Persistence.ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<asp.net_mvc_event_manager.Persistence.ApplicationDbContext>
     {
         public Configuration()
         {
