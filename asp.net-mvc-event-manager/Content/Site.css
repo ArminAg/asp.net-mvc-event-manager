@@ -1,272 +1,194 @@
-﻿body {
-    padding-top: 90px;
-    padding-bottom: 20px;
-}
+/* Colors */
+/* Fonts */
+body {
+  padding-top: 90px;
+  padding-bottom: 20px; }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+  padding-left: 15px;
+  padding-right: 15px; }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
-    white-space: normal;
-}
+  white-space: normal; }
 
- /*Set width on the form input elements since they're 100% wide by default*/ 
-input,
-select,
-textarea {
-    max-width: 350px;
-}
+/*Set width on the form input elements since they're 100% wide by default*/
+input, select, textarea {
+  max-width: 350px; }
 
 span.field-validation-error {
-    color: #ff4342;
-    font-weight: 700;
-}
+  color: #ff4342;
+  font-weight: 700; }
 
-.voffset2 {
-    margin-top: 2px;
-}
+.voffset-xs {
+  margin-top: 5px; }
 
-.voffset5 {
-    margin-top: 5px;
-}
+.voffset-s {
+  margin-top: 10px; }
 
-.voffset10 {
-    margin-top: 10px;
-}
+.voffset-m {
+  margin-top: 20px; }
 
-.voffset20 {
-    margin-top: 20px;
-}
+.voffset-l {
+  margin-top: 40px; }
 
-.voffset40 {
-    margin-top: 40px;
-}
-
-.voffset80 {
-    margin-top: 80px;
-}
+.voffset-xl {
+  margin-top: 80px; }
 
 /* Bootstrap Overrides */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url("fonts/glyphicons-halflings-regular.eot");
+  src: url("fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("fonts/glyphicons-halflings-regular.woff") format("woff"), url("fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px; }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+/* Buttons and Links */
 a {
+  color: #3498db; }
+  a:hover, a:focus {
     color: #3498db;
-}
-
-    a:hover, a:focus {
-        color: #3498db;
-        text-decoration: underline;
-    }
+    text-decoration: underline; }
 
 .btn-default {
-    color: #3498db;
-    background-color: transparent;
-    border-color: #3498db;
-}
+  color: #3498db;
+  background-color: transparent;
+  border-color: #3498db; }
+  .btn-default:hover {
+    color: #fff;
+    background-color: #3498db;
+    border-color: #3498db; }
 
-    .btn-default:hover {
-        color: #ffffff;
-        background-color: #3498db;
-        border-color: #3498db;
-    }
-
-@font-face {
-    font-family: 'Glyphicons Halflings';
-    src: url('fonts/glyphicons-halflings-regular.eot');
-    src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
-}
-
+/* Navbar */
 .navbar-inverse {
-    background-color: #ff4342;
-    border-color: rgba(205, 40, 39, 0.55);
-}
+  background-color: #ff4342;
+  border-color: rgba(205, 40, 39, 0.55); }
+  .navbar-inverse .navbar-brand {
+    color: #fff; }
+  .navbar-inverse .navbar-nav > li > a {
+    color: #fff; }
+  .navbar-inverse .navbar-nav > .open > a {
+    background-color: rgba(205, 40, 39, 0.55); }
+    .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+      background-color: rgba(205, 40, 39, 0.55); }
+  .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: transparent; }
+  .navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff; }
+  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #fff; }
+  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #fff; }
+  .navbar-inverse .navbar-toggle {
+    border-color: #fff; }
+    .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+      background-color: #fff; }
+    .navbar-inverse .navbar-toggle:hover .icon-bar, .navbar-inverse .navbar-toggle:focus .icon-bar {
+      background-color: #333; }
 
-    .navbar-inverse .navbar-brand {
-        color: #fff;
-    }
-
-    .navbar-inverse .navbar-nav > li > a {
-        color: #fff;
-    }
-
-    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-        background-color: rgba(205, 40, 39, 0.55);
-    }
-
-    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-        color: #fff;
-        background-color: transparent;
-    }
-
-
-    .navbar-inverse .navbar-nav > .dropdown > a .caret {
-        border-top-color: #fff;
-        border-bottom-color: #fff;
-    }
+.navbar-toggle {
+  border: 2px solid transparent; }
 
 .navbar-brand {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 21px;
-    font-weight: 700;
-}
+  font-family: "Montserrat", sans-serif;
+  font-size: 21px;
+  font-weight: 700; }
 
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
-    color: #fff;
-    background-color: transparent;
-}
-
+  color: #fff;
+  background-color: transparent; }
 .navbar-inverse .notifications {
-    position: relative;
-}
-
-    .navbar-inverse .notifications .badge {
-        position: absolute;
-        top: 8px;
-        right: 0;
-        background: #a80a0a;
-        color: #fff;
-    }
-
-.popover {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-.popover-title {
-    background-color: none
-}
-
-.popover-notifications .popover-content {
-    padding: 0;
-}
-
-.popover-notifications ul.notifications {
-    list-style: none;
-    padding-left: 0;
-}
-
-    .popover-notifications ul.notifications > li {
-        border-bottom: 1px solid #ddd;
-        padding: 10px;
-    }
-
-        .popover-notifications ul.notifications > li:last-child {
-            border-bottom: none;
-        }
-
-    .popover-notifications ul.notifications .highlight {
-        font-weight: 700;
-    }
-
-
+  position: relative; }
+  .navbar-inverse .notifications .badge {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    background: #a80a0a;
+    color: #fff; }
 
 .dropdown-menu {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-}
+  box-shadow: none;
+  -webkit-box-shadow: none; }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 17px;
-}
+/* Popover */
+.popover {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+.popover-title {
+  background-color: none; }
 
-/*.form-group {
-    margin-bottom: 20px;
-}*/
+.popover-notifications .popover-content {
+  padding: 0; }
+.popover-notifications ul.notifications {
+  list-style: none;
+  padding-left: 0; }
+  .popover-notifications ul.notifications > li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px; }
+    .popover-notifications ul.notifications > li:last-child {
+      border-bottom: none; }
+  .popover-notifications ul.notifications .highlight {
+    font-weight: 700; }
 
+/* Forms */
 .form-control {
-    font-size: 17px;
-    height: 50px;
-    border-radius: 6px;
-}
+  font-size: 17px;
+  height: 50px;
+  border-radius: 6px; }
 
-.well {
-    border-radius: 6px;
-}
-
-.btn {
-    border-radius: 6px;
-}
+.well, .btn {
+  border-radius: 6px; }
 
 /* Page Specific Styles */
+#search-events {
+  max-width: 300px; }
 
 .events {
-    list-style: none;
-}
+  list-style: none; }
+  .events > li {
+    position: relative;
+    margin-bottom: 30px; }
+    .events > li .date {
+      background: #ff4342;
+      color: white;
+      text-align: center;
+      width: 60px;
+      border-radius: 6px; }
+      .events > li .date .month {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 2px 6px; }
+      .events > li .date .day {
+        background: #f7f7f7;
+        color: #333;
+        font-size: 20px;
+        padding: 6px 12px; }
+    .events > li .details {
+      position: absolute;
+      top: 0;
+      left: 70px; }
+      .events > li .details .artist {
+        font-weight: 700;
+        display: block; }
+      .events > li .details .genre {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 4px; }
+    .events > li .actions {
+      font-size: 15px;
+      display: none; }
+    .events > li:hover .actions {
+      display: block; }
 
-    .events > li {
-        position: relative;
-        margin-bottom: 30px;
-    }
-
-        .events > li .date {
-            background: #ff4342;
-            color: white;
-            text-align: center;
-            width: 60px;
-            border-radius: 6px;
-        }
-
-            .events > li .date .month {
-                text-transform: uppercase;
-                font-size: 14px;
-                font-weight: 700;
-                padding: 2px 6px;
-            }
-
-            .events > li .date .day {
-                background: #f7f7f7;
-                color: #333;
-                font-size: 20px;
-                padding: 6px 12px;
-            }
-
-        .events > li .details {
-            position: absolute;
-            top: 0;
-            left: 70px;
-        }
-
-            .events > li .details .artist {
-                font-weight: 700;
-                display: block;
-            }
-
-            .events > li .details .genre {
-                font-size: 14px;
-                display: block;
-                margin-bottom: 4px;
-            }
-
-        .events > li .actions {
-            font-size: 15px;
-            display: none;
-        }
-
-        .events > li:hover .actions {
-            display: block;
-        }
-
-#search-events {
-    max-width: 300px;
-}
+/*# sourceMappingURL=site.css.map */

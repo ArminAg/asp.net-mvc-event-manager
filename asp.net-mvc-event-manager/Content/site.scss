@@ -1,0 +1,290 @@
+﻿@import 'custom/_variables.scss';
+@import 'custom/_mixins.scss';
+
+body {
+    @include padding-top-bottom(90px, 20px);
+}
+
+/* Set padding to keep content from hitting the edges */
+
+.body-content {
+    @include padding-left-right(15px, 15px);
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/*Set width on the form input elements since they're 100% wide by default*/
+
+input, select, textarea {
+    max-width: 350px;
+}
+
+span.field-validation-error {
+    color: $app-color;
+    font-weight: 700;
+}
+
+.voffset-xs {
+    margin-top: $margin-top-helper;
+}
+
+.voffset-s {
+    margin-top: $margin-top-helper * 2;
+}
+
+.voffset-m {
+    margin-top: $margin-top-helper * 4;
+}
+
+.voffset-l {
+    margin-top: $margin-top-helper * 8;
+}
+
+.voffset-xl {
+    margin-top: $margin-top-helper * 16;
+}
+
+/* Bootstrap Overrides */
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('fonts/glyphicons-halflings-regular.eot');
+    src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format("embedded-opentype"), url('fonts/glyphicons-halflings-regular.woff') format("woff"), url('fonts/glyphicons-halflings-regular.ttf') format("truetype"), url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format("svg");
+}
+
+body {
+    font-family: $main-font;
+    font-size: $main-font-size;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $header-font;
+}
+
+/* Buttons and Links */
+a {
+    color: $button-color;
+
+    &:hover, &:focus {
+        color: $button-color;
+        text-decoration: underline;
+    }
+}
+
+.btn-default {
+    color: $button-color;
+    background-color: transparent;
+    border-color: $button-color;
+
+    &:hover {
+        color: $nav-link-color-hover;
+        background-color: $button-color;
+        border-color: $button-color;
+    }
+}
+
+/* Navbar */
+
+.navbar-inverse {
+    background-color: $app-color;
+    border-color: $app-color-darker-transparent;
+
+    .navbar-brand {
+        color: $nav-link-color;
+    }
+
+    .navbar-nav > {
+        li > a {
+            color: $nav-link-color;
+        }
+
+        .open > a {
+            background-color: $app-color-darker-transparent;
+
+            &:hover, &:focus {
+                background-color: $app-color-darker-transparent;
+            }
+        }
+
+        li > a {
+            &:hover, &:focus {
+                color: $nav-link-color-hover;
+                background-color: transparent;
+            }
+        }
+
+        .dropdown > a .caret {
+            border-top-color: $nav-link-color;
+            border-bottom-color: $nav-link-color;
+        }
+    }
+
+    .navbar-collapse, .navbar-form {
+        border-color: #fff;
+    }
+
+    .navbar-collapse, .navbar-form {
+            border-color: #fff;
+        }
+
+        .navbar-toggle {
+            border-color: #fff;
+
+            &:hover, &:focus {
+                background-color: #fff;
+            }
+
+            &:hover .icon-bar, &:focus .icon-bar {
+                background-color: #333;
+            }
+        }
+}
+
+
+.navbar-toggle {
+    border: 2px solid transparent;
+}
+
+.navbar-brand {
+    font-family: $logo-font;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.navbar-inverse {
+    .navbar-brand {
+        &:hover, &:focus {
+            color: $nav-link-color-hover;
+            background-color: transparent;
+        }
+    }
+
+    .notifications {
+        position: relative;
+
+        .badge {
+            position: absolute;
+            top: 8px;
+            right: 0;
+            background: $app-color-darker;
+            color: $badge-text-color;
+        }
+    }
+}
+
+.dropdown-menu {
+    @include no-box-shadow;
+}
+
+/* Popover */
+.popover {
+    @include no-box-shadow;
+}
+
+.popover-title {
+    background-color: none;
+}
+
+.popover-notifications {
+    .popover-content {
+        padding: 0;
+    }
+
+    ul.notifications {
+        list-style: none;
+        padding-left: 0;
+
+        > li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .highlight {
+            font-weight: 700;
+        }
+    }
+}
+
+/* Forms */
+.form-control {
+    font-size: $main-font-size;
+    height: 50px;
+    border-radius: $app-border-radius;
+}
+
+.well, .btn {
+    border-radius: $app-border-radius;
+}
+
+/* Page Specific Styles */
+
+#search-events {
+    max-width: 300px;
+}
+
+.events {
+    list-style: none;
+
+    > li {
+        position: relative;
+        margin-bottom: 30px;
+
+        .date {
+            background: $app-color;
+            color: white;
+            text-align: center;
+            width: 60px;
+            border-radius: $app-border-radius;
+
+            .month {
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 700;
+                padding: 2px 6px;
+            }
+
+            .day {
+                background: #f7f7f7;
+                color: #333;
+                font-size: 20px;
+                padding: 6px 12px;
+            }
+        }
+
+        .details {
+            position: absolute;
+            top: 0;
+            left: 70px;
+
+            .artist {
+                font-weight: 700;
+                display: block;
+            }
+
+            .genre {
+                font-size: 14px;
+                display: block;
+                margin-bottom: 4px;
+            }
+        }
+
+        .actions {
+            font-size: 15px;
+            display: none;
+        }
+
+        &:hover .actions {
+            display: block;
+        }
+    }
+}

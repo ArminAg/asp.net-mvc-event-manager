@@ -329,12 +329,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.css">
+      <DependentUpon>bootstrap.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\site.css">
+      <DependentUpon>site.scss</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\controllers\eventDetailsController.js" />
     <Content Include="Scripts\app\controllers\eventsController.js" />
@@ -343,6 +346,85 @@
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\site.scss" />
+    <Content Include="Content\custom\_variables.scss" />
+    <Content Include="Content\custom\_mixins.scss" />
+    <Content Include="Content\_bootstrap-compass.scss" />
+    <Content Include="Content\_bootstrap-mincer.scss" />
+    <Content Include="Content\_bootstrap-sprockets.scss" />
+    <Content Include="Content\bootstrap\_alerts.scss" />
+    <Content Include="Content\bootstrap\_badges.scss" />
+    <Content Include="Content\bootstrap\_breadcrumbs.scss" />
+    <Content Include="Content\bootstrap\_button-groups.scss" />
+    <Content Include="Content\bootstrap\_buttons.scss" />
+    <Content Include="Content\bootstrap\_carousel.scss" />
+    <Content Include="Content\bootstrap\_close.scss" />
+    <Content Include="Content\bootstrap\_code.scss" />
+    <Content Include="Content\bootstrap\_component-animations.scss" />
+    <Content Include="Content\bootstrap\_dropdowns.scss" />
+    <Content Include="Content\bootstrap\_forms.scss" />
+    <Content Include="Content\bootstrap\_glyphicons.scss" />
+    <Content Include="Content\bootstrap\_grid.scss" />
+    <Content Include="Content\bootstrap\_input-groups.scss" />
+    <Content Include="Content\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\bootstrap\_labels.scss" />
+    <Content Include="Content\bootstrap\_list-group.scss" />
+    <Content Include="Content\bootstrap\_media.scss" />
+    <Content Include="Content\bootstrap\_mixins.scss" />
+    <Content Include="Content\bootstrap\_modals.scss" />
+    <Content Include="Content\bootstrap\_navbar.scss" />
+    <Content Include="Content\bootstrap\_navs.scss" />
+    <Content Include="Content\bootstrap\_normalize.scss" />
+    <Content Include="Content\bootstrap\_pager.scss" />
+    <Content Include="Content\bootstrap\_pagination.scss" />
+    <Content Include="Content\bootstrap\_panels.scss" />
+    <Content Include="Content\bootstrap\_popovers.scss" />
+    <Content Include="Content\bootstrap\_print.scss" />
+    <Content Include="Content\bootstrap\_progress-bars.scss" />
+    <Content Include="Content\bootstrap\_responsive-embed.scss" />
+    <Content Include="Content\bootstrap\_responsive-utilities.scss" />
+    <Content Include="Content\bootstrap\_scaffolding.scss" />
+    <Content Include="Content\bootstrap\_tables.scss" />
+    <Content Include="Content\bootstrap\_theme.scss" />
+    <Content Include="Content\bootstrap\_thumbnails.scss" />
+    <Content Include="Content\bootstrap\_tooltip.scss" />
+    <Content Include="Content\bootstrap\_type.scss" />
+    <Content Include="Content\bootstrap\_utilities.scss" />
+    <Content Include="Content\bootstrap\_variables.scss" />
+    <Content Include="Content\bootstrap\_wells.scss" />
+    <Content Include="Content\bootstrap\mixins\_alerts.scss" />
+    <Content Include="Content\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\bootstrap\mixins\_center-block.scss" />
+    <Content Include="Content\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="Content\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\bootstrap\mixins\_labels.scss" />
+    <Content Include="Content\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="Content\bootstrap\mixins\_opacity.scss" />
+    <Content Include="Content\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\bootstrap\mixins\_panels.scss" />
+    <Content Include="Content\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="Content\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="Content\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="Content\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="Content\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="Content\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\bootstrap.scss" />
+    <Content Include="Content\bootstrap\theme\_bootswatch.scss" />
+    <Content Include="Content\bootstrap\theme\_variables.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -394,9 +476,7 @@
     <Content Include="Views\Events\Mine.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
