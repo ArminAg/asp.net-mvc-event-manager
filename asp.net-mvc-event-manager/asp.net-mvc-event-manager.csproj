@@ -276,6 +276,10 @@
     <Compile Include="Persistence\Migrations\201703101417541_AddNotification.Designer.cs">
       <DependentUpon>201703101417541_AddNotification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201703221536182_ChangeForeignKeyEventIdNameOnNotifications.cs" />
+    <Compile Include="Persistence\Migrations\201703221536182_ChangeForeignKeyEventIdNameOnNotifications.Designer.cs">
+      <DependentUpon>201703221536182_ChangeForeignKeyEventIdNameOnNotifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Core\Models\Attendance.cs" />
@@ -517,6 +521,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201703101417541_AddNotification.resx">
       <DependentUpon>201703101417541_AddNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201703221536182_ChangeForeignKeyEventIdNameOnNotifications.resx">
+      <DependentUpon>201703221536182_ChangeForeignKeyEventIdNameOnNotifications.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

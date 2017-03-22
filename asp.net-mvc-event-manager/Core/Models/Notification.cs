@@ -9,6 +9,7 @@ namespace asp.net_mvc_event_manager.Core.Models
         public NotificationType Type { get; private set; }
         public DateTime? OriginalDateTime { get; private set; }
         public string OriginalVenue { get; private set; }
+        public int EventId { get; set; }
         public Event Event { get; private set; }
 
         // Available for Entity Framework
