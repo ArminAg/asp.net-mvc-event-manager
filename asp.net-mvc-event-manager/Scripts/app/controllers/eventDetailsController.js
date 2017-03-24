@@ -2,8 +2,8 @@
 var EventDetailsController = function (followingService) {
     var followButton;
 
-    var init = function () {
-        $(".js-toggle-follow").click(toggleFollowing);
+    var init = function (selector) {
+        $(selector).click(toggleFollowing);
     };
 
     var toggleFollowing = function (e) {

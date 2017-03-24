@@ -2,8 +2,8 @@
 var EventsController = function (attendanceService) {
     var button;
 
-    var init = function (container) {
-        $(container).on("click", ".js-toggle-attendance", toggleAttendance);
+    var init = function (container, buttonSelector) {
+        $(container).on("click", buttonSelector, toggleAttendance);
     };
 
     var toggleAttendance = function (e) {

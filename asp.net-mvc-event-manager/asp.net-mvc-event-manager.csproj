@@ -345,8 +345,12 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\controllers\eventDetailsController.js" />
     <Content Include="Scripts\app\controllers\eventsController.js" />
+    <Content Include="Scripts\app\controllers\myEventsController.js" />
+    <Content Include="Scripts\app\controllers\notificationsController.js" />
     <Content Include="Scripts\app\services\attendanceService.js" />
+    <Content Include="Scripts\app\services\eventService.js" />
     <Content Include="Scripts\app\services\followingService.js" />
+    <Content Include="Scripts\app\services\notificationService.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
